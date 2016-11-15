@@ -2,3 +2,4 @@ slackclient==1.0.2
 spacy==0.101.0
 scikit-learn==0.18
 matplotlib==1.5.1
+scipy==0.18.1
