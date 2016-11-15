@@ -7,7 +7,7 @@ import spacy
 from spacy.parts_of_speech import VERB, NUM, NOUN
 nlp = spacy.load('en')
 
-def tokenize(doc):
+def extract_keywords(doc):
     # here we run spacy on the text
     # it will identify named entities and tag parts-of-speech
     doc = nlp(doc)
@@ -15,6 +15,14 @@ def tokenize(doc):
     toks = [tok.text for tok in doc
             if not tok.is_stop and tok.pos in [VERB, NUM, NOUN]]
     return [t.lower() for t in ents + toks]
+
+docs = ['||'.join(extract_keywords(d)) for d in docs]
+
+with open('data/docs_processed.json', 'w') as f:
+    json.dump(docs, f)
+
+def tokenize(doc):
+    return doc.split('||')
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 vectorizer = TfidfVectorizer(

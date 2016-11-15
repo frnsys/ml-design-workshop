@@ -12,7 +12,7 @@ to_remove = [
     'basketball', 'warriors', 'game', 'nba', 'sport',
     'volkswagen', 'jaguar', 'food', 'tv', 'music',
     'photographers', 'halloween', 'art', 'bears', 'permalink',
-    'soccer', 'films', 'thanksgiving'
+    'soccer', 'films', 'thanksgiving', 'forecast'
 ]
 
 def process_article(a):
