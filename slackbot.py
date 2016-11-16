@@ -53,7 +53,7 @@ def get_more(matches):
 
 commands = {
     '(hello|hi|hey)!?': 'hi there!',
-    'what\'s new?': get_news,
+    'what(\'|’)s new?': get_news,
     'tell me (more )?about (.+)': get_more
 }
 
