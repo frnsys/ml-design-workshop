@@ -11,7 +11,7 @@ stories = json.load(open('data.json', 'r'))
 
 all_events = []
 for story in stories:
-    all_events += story['events']
+    all_events += story
 all_events = sorted(all_events, key=lambda e: min(a['created_at'] for a in e['articles']))
 
 def get_news(matches):
@@ -41,7 +41,7 @@ def get_more(matches):
         ev = evs[i]
         article = ev['articles'][0]
         story_id = ev['story_id']
-        other_events = [e['articles'][0] for e in stories[story_id]['events']]
+        other_events = [e['articles'][0] for e in stories[story_id]]
         return '*{}* (<{}>)\n{}\n{}\n\nOther events in this story:\n- {}'.format(
             article['title'],
             article['url'],
